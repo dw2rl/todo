@@ -1,0 +1,15 @@
+{% extends 'base/main.html' %} 
+
+
+
+
+{% block content %} 
+<h1>Hello {{request.username}}</h1>
+<div>
+    <ul>
+        {% for todo in todos %}
+        <li><a href="{% url 'todo' todo.id %}">{{todo}} -- {{todo.id}}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
