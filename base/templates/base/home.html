@@ -1,14 +1,15 @@
 {% extends 'base/main.html' %} 
 
-
-
-
 {% block content %} 
 <h1>Hello {{request.username}}</h1>
+<a href="{% url 'add-todo' %}">Add ToDo</a>
 <div>
     <ul>
         {% for todo in todos %}
         <li><a href="{% url 'todo' todo.id %}">{{todo}} -- {{todo.id}}</a></li>
+        <a href="{% url 'update-todo' todo.id %}">Update</a>
+        <a href="{% url 'delete-todo' todo.id %}">Delete</a>
+        <hr>
         {% endfor %}
     </ul>
 </div>
